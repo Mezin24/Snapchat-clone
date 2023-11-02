@@ -39,8 +39,8 @@ const WebcamCapture = () => {
         width={videoConstraints.width}
         videoConstraints={videoConstraints}
       />
-      <IconButton className={cls.webcamBtn}>
-        <RadioButtonUncheckedIcon onClick={capture} fontSize='large' />
+      <IconButton className={cls.webcamBtn} onClick={capture}>
+        <RadioButtonUncheckedIcon fontSize='large' />
       </IconButton>
     </div>
   );

@@ -1,12 +1,16 @@
 .capture {
   position: relative;
+  width: 250px;
+  height: 400px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .webcamBtn {
   position: absolute;
-  bottom: 0;
-  left: -50%;
-  transform: translateY(-50%);
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
   cursor: pointer;
 }
 
