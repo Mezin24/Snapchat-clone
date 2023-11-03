@@ -1,0 +1,64 @@
+.chats {
+  position: relative;
+  height: 400px;
+  width: 250px;
+  box-sizing: content-box;
+}
+
+.avatar {
+  width: 25px !important;
+  height: 25px !important;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10px;
+  background-color: #059ee0;
+  height: 50px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 8px;
+}
+
+.search input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  flex: 1;
+  color: white;
+}
+
+.search input::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.posts {
+  height: 359px;
+  background-color: white;
+  box-shadow: 1px -7px 7px -6px rgba(0, 0, 0, 0.44);
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-top: -9px;
+  overflow-y: scroll;
+}
+
+.posts {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.posts::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.spinnerContainer {
+  margin-top: 30px;
+  text-align: center;
+}

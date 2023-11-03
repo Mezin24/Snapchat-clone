@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { StateSchema } from './StateSchema';
 import { cameraReducer } from './camera/cameraSlice';
+import { appReducer } from './app/appslice';
 
 export const store = configureStore<StateSchema>({
   reducer: {
     camera: cameraReducer,
+    app: appReducer,
   },
 });
 
