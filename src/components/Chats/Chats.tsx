@@ -1,28 +1,53 @@
 import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
 import SearchIcon from '@mui/icons-material/Search';
-import { Avatar } from '@mui/material';
+import { Avatar, IconButton } from '@mui/material';
 import { collection, orderBy, query } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { SyncLoader } from 'react-spinners';
-import { db } from '../../../firebase.config';
+import { auth, db } from '../../../firebase.config';
 import { Post } from '../../types/post';
 import Chat from './Chat';
 import cls from './Chats.module.css';
+import { getUser } from '../../store/app/appSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { useCallback } from 'react';
+import { appActions } from '../../store/app/appslice';
+import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import { useNavigate } from 'react-router-dom';
+import { cameraActions } from '../../store/camera/cameraSlice';
 
 const Chats = () => {
   const [posts, loading] = useCollection(
     query(collection(db, 'posts'), orderBy('timestamp', 'desc'))
   );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const user = useSelector(getUser);
+  const logout = useCallback(() => {
+    auth.signOut();
+    dispatch(appActions.logout());
+  }, [dispatch]);
+
+  const takeSnap = useCallback(() => {
+    dispatch(cameraActions.resetCameraImage());
+    navigate('/');
+  }, [dispatch, navigate]);
 
   return (
     <div className={cls.chats}>
       <div className={cls.header}>
-        <Avatar className={cls.avatar} />
+        <Avatar onClick={logout} className={cls.avatar} src={user?.profilePic}>
+          {user?.username[0].toUpperCase()}
+        </Avatar>
         <div className={cls.search}>
-          <SearchIcon />
+          <SearchIcon style={{ color: 'white', fontSize: '18px' }} />
           <input type='text' placeholder='Friends' />
         </div>
-        <ChatBubbleIcon className={cls.babelIcon} />
+        <ChatBubbleIcon
+          style={{ color: 'white', fontSize: '18px' }}
+          className={cls.babelIcon}
+        />
       </div>
       <div className={cls.posts}>
         {loading && (
@@ -38,6 +63,9 @@ const Chats = () => {
             />
           ))}
       </div>
+      <IconButton className={cls.radioBtn} onClick={takeSnap}>
+        <RadioButtonUncheckedIcon fontSize='large' />
+      </IconButton>
     </div>
   );
 };

@@ -18,8 +18,10 @@ import { db, storage } from '../../../firebase.config';
 import { ref, uploadString, getDownloadURL } from 'firebase/storage';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { IconButton } from '@mui/material';
+import { getUser } from '../../store/app/appSelectors';
 
 const Preview = () => {
+  const user = useSelector(getUser);
   const cameraImg = useSelector(getCameraImage);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,12 +37,13 @@ const Preview = () => {
     const downloadURL = await getDownloadURL(snapshot.ref);
     await addDoc(collection(db, 'posts'), {
       imageUrl: downloadURL,
-      username: 'Mezin24',
+      username: user?.username,
       read: false,
       timestamp: serverTimestamp(),
+      profilePic: user?.profilePic,
     });
     navigate('/chats');
-  }, [cameraImg, navigate]);
+  }, [cameraImg, navigate, user]);
 
   if (!cameraImg) return <Navigate to='/' replace />;
 

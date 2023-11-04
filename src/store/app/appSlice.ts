@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import { User } from 'firebase/auth/cordova';
+import { User } from '../../types/user';
 
 export interface AppState {
   user: User | null;

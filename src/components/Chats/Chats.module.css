@@ -3,11 +3,14 @@
   height: 400px;
   width: 250px;
   box-sizing: content-box;
+  border-radius: 7px;
+  overflow: hidden;
 }
 
 .avatar {
   width: 25px !important;
   height: 25px !important;
+  cursor: pointer;
 }
 
 .header {
@@ -16,7 +19,8 @@
   align-items: center;
   padding-inline: 10px;
   background-color: #059ee0;
-  height: 50px;
+  height: 60px;
+  padding-bottom: 10px;
 }
 
 .search {
@@ -61,4 +65,11 @@
 .spinnerContainer {
   margin-top: 30px;
   text-align: center;
+}
+
+.radioBtn {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }

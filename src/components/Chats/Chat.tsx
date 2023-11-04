@@ -30,7 +30,9 @@ const Chat = ({ post }: ChatProps) => {
 
   return (
     <div onClick={open} className={cls.chat}>
-      <Avatar src={profilePic} className={cls.avatar} />
+      <Avatar src={profilePic} className={cls.avatar}>
+        {username[0].toUpperCase()}
+      </Avatar>
       <div className={cls.info}>
         <h4>{username}</h4>
         <p>
