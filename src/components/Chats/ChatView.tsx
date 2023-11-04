@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import cls from './ChatView.module.css';
 import { useCallback, useEffect } from 'react';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
-import { appActions } from '../../store/app/appslice';
+import { appActions } from '../../store/app/appSlice';
 
 const ChatView = () => {
   const selectedImage = useSelector(selectSelectedImage);

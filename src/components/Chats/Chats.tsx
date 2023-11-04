@@ -11,7 +11,7 @@ import cls from './Chats.module.css';
 import { getUser } from '../../store/app/appSelectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { appActions } from '../../store/app/appslice';
+import { appActions } from '../../store/app/appSlice';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
 import { useNavigate } from 'react-router-dom';
 import { cameraActions } from '../../store/camera/cameraSlice';

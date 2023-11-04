@@ -1,12 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from '../../store/app/appSelectors';
-import cls from './Login.module.css';
 import { Button } from '@mui/material';
-import { useCallback } from 'react';
-import SnapchatLogo from '../../assets/snapchat-logo.svg';
 import { signInWithPopup } from 'firebase/auth';
+import { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 import { auth, provider } from '../../../firebase.config';
-import { appActions } from '../../store/app/appslice';
+import SnapchatLogo from '../../assets/snapchat-logo.svg';
+import { appActions } from '../../store/app/appSlice';
+import cls from './Login.module.css';
 
 const Login = () => {
   const dispatch = useDispatch();

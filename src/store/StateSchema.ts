@@ -1,4 +1,4 @@
-import { AppState } from './app/appslice';
+import { AppState } from './app/appSlice';
 import { CameraState } from './camera/cameraSlice';
 
 export interface StateSchema {

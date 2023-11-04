@@ -10,7 +10,7 @@ import Login from './components/Login/Login';
 import { useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../firebase.config';
-import { appActions } from './store/app/appslice';
+import { appActions } from './store/app/appSlice';
 
 function App() {
   const user = useSelector(getUser);

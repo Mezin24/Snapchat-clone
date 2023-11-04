@@ -6,7 +6,7 @@ import cls from './Chat.module.css';
 import ReactTimeAgo from 'react-time-ago';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { appActions } from '../../store/app/appslice';
+import { appActions } from '../../store/app/appSlice';
 import { db } from '../../../firebase.config';
 import { useNavigate } from 'react-router-dom';
 
